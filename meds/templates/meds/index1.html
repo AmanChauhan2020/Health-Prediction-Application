@@ -1,0 +1,14 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+  <body class="text-center">
+    {% if user.is_authenticated %}
+    <li>Hello, {{user.username}}</li>
+    <li><a href="http://127.0.0.1:8000/logout">Logout</a></li>
+    {% else %}
+    <li><a href="http://127.0.0.1:8000/login">Login</a></li>
+    <li><a href="http://127.0.0.1:8000/signup">Signup</a></li>
+    {% endif %}
+</body>
+</html>
