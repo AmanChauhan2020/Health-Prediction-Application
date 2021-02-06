@@ -31,9 +31,7 @@
       
       <div class="d-flex align-items-center">
         <i class="icofont-phone"></i> Call us now +91XXXXXXXXXX
-      </div>{% if user.is_authenticated %}
-      Hello {{user.username}}
-      {% endif %}
+      </div>
     </div>
   </div>
 
@@ -45,8 +43,11 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          
+          {% if user.is_authenticated %}
+          <li><b>Hi {{user.username}}</b></li>
+          {% endif %}
           <li class="active"><a href="http://127.0.0.1:8000/">Home</a></li>
+          <li><a href="http://127.0.0.1:8000/about">About</a></li>
 		  <li><a href="http://127.0.0.1:8000/department">Department</a></li>
 		  <li><a href="http://127.0.0.1:8000/doctor">Doctors</a></li>
 		  <li><a href="http://127.0.0.1:8000/faq">FAQs</a></li>
@@ -58,7 +59,6 @@
             <li><a href="#">Random Forest</a></li>
           </ul>
         </li> 
-        <li><a href="http://127.0.0.1:8000/contact">Contact</a></li>
     {% if user.is_authenticated %}
     <li><a href="http://127.0.0.1:8000/logout">Logout</a></li>
     {% else %}
@@ -73,53 +73,85 @@
     </div>
   </header>
 
-  <section id="hero">
-    <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+ 
 
-      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+  <section id="contact" class="contact">
+    <div class="container">
 
-      <div class="carousel-inner" role="listbox">
-
-        <div class="carousel-item active" style="background-image: url({% static "assets1/img/slide/slide-1.jpg" %})">
-          <div class="container">
-            <h2>Welcome to <span>Health Live</span></h2>
-            <p>We help our users to predict the type of disease he/she is suffering from by using Machine Learning techniques.</p>
-            <a href="#about" class="btn-get-started scrollto">Read More</a>
-          </div>
-        </div>
-
-        <div class="carousel-item" style="background-image: url({% static "assets1/img/slide/slide-2.jpg" %})">
-          <div class="container">
-            <h2>Chatbot Application</h2>
-            <p>Our application provides a smart chatbot which will answer all your queries.</p>
-            <a href="#about" class="btn-get-started scrollto">Read More</a>
-          </div>
-        </div>
-
-        <div class="carousel-item" style="background-image: url({% static "assets1/img/slide/slide-3.jpg" %})">
-          <div class="container">
-            <h2>Book your appointment</h2>
-            <p>It allows the users to book their appointment with the choice of doctors.</p>
-            <a href="#about" class="btn-get-started scrollto">Read More</a>
-          </div>
-        </div>
-
+      <div class="section-title"><br><br><br><br>
+        <h2>Contact</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
       </div>
 
-      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
+    </div>
 
-      <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+    <div>
+      <iframe style="border:0; width: 100%; height: 350px;" src="https://maps.google.com/maps?q=mumbai%20ce&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="container">
+
+      <div class="row mt-5">
+
+        <div class="col-lg-6">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="info-box">
+                <i class="bx bx-map"></i>
+                <h3>Address</h3>
+                <p>Mumbai Central - 400008</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="info-box mt-4">
+                <i class="bx bx-envelope"></i>
+                <h3>Email</h3>
+                <p>abc@gmail.com<br>xyz@gmail.com</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="info-box mt-4">
+                <i class="bx bx-phone-call"></i>
+                <h3>Contact</h3>
+                <p>+91XXXXXXXXXX</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-6">
+          <form action="contact" method="post" role="form" class="php-email-form">{% csrf_token %}
+            <div class="form-row">
+              <div class="col form-group">
+                <input name="name" type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validate"></div>
+              </div>
+              <div class="col form-group">
+                <input name="email" type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <div class="validate"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input name="sub" type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+              <div class="validate"></div>
+            </div>
+            
+            <div class="text-center"><button type="submit">Send Message</button></div>
+          </form>
+          
+        </div>
+        
+      </div>
 
     </div>
   </section>
 
-  
+    
+    
+
+  </main>
   <footer id="footer">
     
 

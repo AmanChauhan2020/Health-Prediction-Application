@@ -31,9 +31,7 @@
       
       <div class="d-flex align-items-center">
         <i class="icofont-phone"></i> Call us now +91XXXXXXXXXX
-      </div>{% if user.is_authenticated %}
-      Hello {{user.username}}
-      {% endif %}
+      </div>
     </div>
   </div>
 
@@ -45,8 +43,11 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          
+          {% if user.is_authenticated %}
+          <li><b>Hi {{user.username}}</b></li>
+          {% endif %}
           <li class="active"><a href="http://127.0.0.1:8000/">Home</a></li>
+          <li><a href="http://127.0.0.1:8000/about">About</a></li>
 		  <li><a href="http://127.0.0.1:8000/department">Department</a></li>
 		  <li><a href="http://127.0.0.1:8000/doctor">Doctors</a></li>
 		  <li><a href="http://127.0.0.1:8000/faq">FAQs</a></li>
@@ -58,7 +59,6 @@
             <li><a href="#">Random Forest</a></li>
           </ul>
         </li> 
-        <li><a href="http://127.0.0.1:8000/contact">Contact</a></li>
     {% if user.is_authenticated %}
     <li><a href="http://127.0.0.1:8000/logout">Logout</a></li>
     {% else %}
@@ -73,53 +73,99 @@
     </div>
   </header>
 
-  <section id="hero">
-    <div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+ 
 
-      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+  <section id="doctors" class="doctors section-bg">
+    <div class="container" data-aos="fade-up">
 
-      <div class="carousel-inner" role="listbox">
+      <div class="section-title"><br><br><br><br>
+        <h2>Doctors</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+      </div>
 
-        <div class="carousel-item active" style="background-image: url({% static "assets1/img/slide/slide-1.jpg" %})">
-          <div class="container">
-            <h2>Welcome to <span>Health Live</span></h2>
-            <p>We help our users to predict the type of disease he/she is suffering from by using Machine Learning techniques.</p>
-            <a href="#about" class="btn-get-started scrollto">Read More</a>
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+          <div class="member" data-aos="fade-up" data-aos-delay="100">
+            <div class="member-img">
+              <img src="{% static "assets1/img/doctors/doctors-1.jpg" %}" class="img-fluid" alt="">
+              <div class="social">
+                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-instagram"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4>Dr. Singh</h4>
+              <span>Chief Medical Officer</span>
+            </div>
           </div>
         </div>
 
-        <div class="carousel-item" style="background-image: url({% static "assets1/img/slide/slide-2.jpg" %})">
-          <div class="container">
-            <h2>Chatbot Application</h2>
-            <p>Our application provides a smart chatbot which will answer all your queries.</p>
-            <a href="#about" class="btn-get-started scrollto">Read More</a>
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+          <div class="member" data-aos="fade-up" data-aos-delay="200">
+            <div class="member-img">
+              <img src="{% static "assets1/img/doctors/doctors-2.jpg" %}" class="img-fluid" alt="">
+              <div class="social">
+                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-instagram"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4>Dr. Verma</h4>
+              <span>Anesthesiologist</span>
+            </div>
           </div>
         </div>
 
-        <div class="carousel-item" style="background-image: url({% static "assets1/img/slide/slide-3.jpg" %})">
-          <div class="container">
-            <h2>Book your appointment</h2>
-            <p>It allows the users to book their appointment with the choice of doctors.</p>
-            <a href="#about" class="btn-get-started scrollto">Read More</a>
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+          <div class="member" data-aos="fade-up" data-aos-delay="300">
+            <div class="member-img">
+              <img src="{% static "assets1/img/doctors/doctors-3.jpg" %}" class="img-fluid" alt="">
+              <div class="social">
+                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-instagram"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4>Dr. Sharma</h4>
+              <span>Cardiology</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+          <div class="member" data-aos="fade-up" data-aos-delay="400">
+            <div class="member-img">
+              <img src="{% static "assets1/img/doctors/doctors-4.jpg" %}" class="img-fluid" alt="">
+              <div class="social">
+                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-instagram"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4>Dr. Tiwari</h4>
+              <span>Neurosurgeon</span>
+            </div>
           </div>
         </div>
 
       </div>
 
-      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon icofont-simple-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-
-      <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon icofont-simple-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-
     </div>
   </section>
 
-  
+    
+    
+
+  </main>
   <footer id="footer">
     
 

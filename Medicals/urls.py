@@ -23,8 +23,13 @@ urlpatterns = [
     path('',views.index, name="home"),
     path('signup',views.signup, name="signup"),
     path('login',views.login, name="login"),
-    path('logout',views.logout, name="logout")
-
+    path('logout',views.logout, name="logout"),
+    path('about',views.about, name="about"),
+    path('appointment',views.appointment, name="appointment"),
+    path('contact',views.contact, name="contact"),
+    path('department',views.department, name="department"),
+    path('faq',views.faq, name="faq"),
+    path('doctor',views.doctor, name="doctor")
 ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+from .models import meds
 import requests
-
 def index(req):
     return render(req, 'meds/index.html')
 def signup(req):
@@ -46,3 +46,21 @@ def login(req):
 def logout(req):
     auth.logout(req)
     return redirect('/')
+def about(req):
+    return render(req, 'meds/about.html')
+def appointment(req):
+    return render(req, 'meds/appointment.html')
+def doctor(req):
+    return render(req, 'meds/doctor.html')
+def contact(req):
+    if req.method== 'POST':
+        name=req.POST['name']
+        email=req.POST['email']
+        text=req.POST['sub']
+        user=meds(name=name,email=email,text=text)
+        user.save()
+    return render(req, 'meds/contact.html')
+def faq(req):
+    return render(req, 'meds/faq.html')
+def department(req):
+    return render(req, 'meds/department.html')
