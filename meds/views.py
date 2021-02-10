@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from .models import meds
+from .models import meds, appoint
 import requests
 def index(req):
     return render(req, 'meds/index.html')
@@ -49,6 +49,17 @@ def logout(req):
 def about(req):
     return render(req, 'meds/about.html')
 def appointment(req):
+    if req.method== 'POST':
+        name=req.POST['name']
+        email=req.POST['email']
+        phone=req.POST['phone']
+        date=req.POST['date']
+        department=req.POST['department']
+        doctor=req.POST['doctor']
+        mess=req.POST['mess']
+        user=appoint(name=name,email=email,phone=phone,date=date,department=department,doctor=doctor,mess=mess)
+        user.save()
+        
     return render(req, 'meds/appointment.html')
 def doctor(req):
     return render(req, 'meds/doctor.html')
@@ -59,6 +70,7 @@ def contact(req):
         text=req.POST['sub']
         user=meds(name=name,email=email,text=text)
         user.save()
+        
     return render(req, 'meds/contact.html')
 def faq(req):
     return render(req, 'meds/faq.html')

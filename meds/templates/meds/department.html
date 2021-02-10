@@ -29,49 +29,48 @@
   <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
       
-      <div class="d-flex align-items-center">
-        <i class="icofont-phone"></i> Call us now +91XXXXXXXXXX
-      </div>
-    </div>
-  </div>
+  <div class="d-flex align-items-center">
+    <i class="icofont-phone"></i> Call us now +91XXXXXXXXXX
+  </div>{% if user.is_authenticated %}
+  Hello {{user.username}}
+  {% endif %}
+</div>
+</div>
+<header id="header" class="fixed-top">
+  <div class="container d-flex align-items-center">
 
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
-
-      <a href="http://127.0.0.1:8000/" class="logo mr-auto"><img src="{% static "assets1/img/logo.png" %}" alt="">Health Live</a>
+    <a href="http://127.0.0.1:8000/" class="logo mr-auto"><img src="{% static "assets1/img/logo.png" %}" alt="">Health Live</a>
 
 
-      <nav class="nav-menu d-none d-lg-block">
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+
+        <li class="active"><a href="http://127.0.0.1:8000/">Home</a></li>
+        <li><a href="http://127.0.0.1:8000/about">About</a></li>
+    <li><a href="http://127.0.0.1:8000/contact">Contact</a></li>
+    <li><a href="http://127.0.0.1:8000/doctor">Doctors</a></li>
+    <li><a href="http://127.0.0.1:8000/faq">FAQs</a></li>
+        <li class="drop-down"><a href="#">Services</a>
         <ul>
-          {% if user.is_authenticated %}
-          <li><b>Hi {{user.username}}</b></li>
-          {% endif %}
-          <li class="active"><a href="http://127.0.0.1:8000/">Home</a></li>
-          <li><a href="http://127.0.0.1:8000/about">About</a></li>
-		  <li><a href="http://127.0.0.1:8000/department">Department</a></li>
-		  <li><a href="http://127.0.0.1:8000/doctor">Doctors</a></li>
-		  <li><a href="http://127.0.0.1:8000/faq">FAQs</a></li>
-          <li class="drop-down"><a href="#">Services</a>
-          <ul>
-            <li><a href="#">Predict Disease</a></li>
-            <li><a href="#">Naive Bayes</a></li>
-            <li><a href="#">Decision Tree</a></li>
-            <li><a href="#">Random Forest</a></li>
-          </ul>
-        </li> 
-    {% if user.is_authenticated %}
-    <li><a href="http://127.0.0.1:8000/logout">Logout</a></li>
-    {% else %}
-    <li><a href="http://127.0.0.1:8000/login">Login</a></li>
-    {% endif %}
-
+          <li><a href="#">Predict Disease</a></li>
+          <li><a href="#">Naive Bayes</a></li>
+          <li><a href="#">Decision Tree</a></li>
+          <li><a href="#">Random Forest</a></li>
         </ul>
-      </nav>
+      </li> 
+  {% if user.is_authenticated %}
+  <li><a href="http://127.0.0.1:8000/logout">Logout</a></li>
+  {% else %}
+  <li><a href="http://127.0.0.1:8000/login">Login</a></li>
+  {% endif %}
 
-      <a href="http://127.0.0.1:8000/appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Book your</span> Appointment</a>
+</ul>
+</nav>
 
-    </div>
-  </header>
+<a href="http://127.0.0.1:8000/appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Book your</span> Appointment</a>
+
+</div>
+</header>
 
  
 

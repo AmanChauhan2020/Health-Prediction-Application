@@ -29,49 +29,48 @@
   <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
       
-      <div class="d-flex align-items-center">
-        <i class="icofont-phone"></i> Call us now +91XXXXXXXXXX
-      </div>
-    </div>
-  </div>
+  <div class="d-flex align-items-center">
+    <i class="icofont-phone"></i> Call us now +91XXXXXXXXXX
+  </div>{% if user.is_authenticated %}
+  Hello {{user.username}}
+  {% endif %}
+</div>
+</div>
+<header id="header" class="fixed-top">
+  <div class="container d-flex align-items-center">
 
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
-
-      <a href="http://127.0.0.1:8000/" class="logo mr-auto"><img src="{% static "assets1/img/logo.png" %}" alt="">Health Live</a>
+    <a href="http://127.0.0.1:8000/" class="logo mr-auto"><img src="{% static "assets1/img/logo.png" %}" alt="">Health Live</a>
 
 
-      <nav class="nav-menu d-none d-lg-block">
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+
+        <li class="active"><a href="http://127.0.0.1:8000/">Home</a></li>
+        <li><a href="http://127.0.0.1:8000/about">About</a></li>
+    <li><a href="http://127.0.0.1:8000/contact">Contact</a></li>
+    <li><a href="http://127.0.0.1:8000/doctor">Doctors</a></li>
+    <li><a href="http://127.0.0.1:8000/faq">FAQs</a></li>
+        <li class="drop-down"><a href="#">Services</a>
         <ul>
-          {% if user.is_authenticated %}
-          <li><b>Hi {{user.username}}</b></li>
-          {% endif %}
-          <li class="active"><a href="http://127.0.0.1:8000/">Home</a></li>
-          <li><a href="http://127.0.0.1:8000/about">About</a></li>
-		  <li><a href="http://127.0.0.1:8000/department">Department</a></li>
-		  <li><a href="http://127.0.0.1:8000/doctor">Doctors</a></li>
-		  <li><a href="http://127.0.0.1:8000/faq">FAQs</a></li>
-          <li class="drop-down"><a href="#">Services</a>
-          <ul>
-            <li><a href="#">Predict Disease</a></li>
-            <li><a href="#">Naive Bayes</a></li>
-            <li><a href="#">Decision Tree</a></li>
-            <li><a href="#">Random Forest</a></li>
-          </ul>
-        </li> 
-    {% if user.is_authenticated %}
-    <li><a href="http://127.0.0.1:8000/logout">Logout</a></li>
-    {% else %}
-    <li><a href="http://127.0.0.1:8000/login">Login</a></li>
-    {% endif %}
-
+          <li><a href="#">Predict Disease</a></li>
+          <li><a href="#">Naive Bayes</a></li>
+          <li><a href="#">Decision Tree</a></li>
+          <li><a href="#">Random Forest</a></li>
         </ul>
-      </nav>
+      </li> 
+  {% if user.is_authenticated %}
+  <li><a href="http://127.0.0.1:8000/logout">Logout</a></li>
+  {% else %}
+  <li><a href="http://127.0.0.1:8000/login">Login</a></li>
+  {% endif %}
 
-      <a href="http://127.0.0.1:8000/appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Book your</span> Appointment</a>
+</ul>
+</nav>
 
-    </div>
-  </header>
+<a href="http://127.0.0.1:8000/appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Book your</span> Appointment</a>
+
+</div>
+</header>
 
  
 
@@ -80,7 +79,7 @@
 
       <div class="section-title"><br><br><br><br>
         <h2>Contact</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <p>Here you can find our location, address, phone number and email address. <br>You could ask your query below. We can't solve your problem if you don't tell us about it.</p>
       </div>
 
     </div>
@@ -125,16 +124,16 @@
           <form action="contact" method="post" role="form" class="php-email-form">{% csrf_token %}
             <div class="form-row">
               <div class="col form-group">
-                <input name="name" type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                 <div class="validate"></div>
               </div>
               <div class="col form-group">
-                <input name="email" type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <input name="email" type="email" class="form-control" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
                 <div class="validate"></div>
               </div>
             </div>
             <div class="form-group">
-              <input name="sub" type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+              <input name="sub" type="text" class="form-control" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
               <div class="validate"></div>
             </div>
             
